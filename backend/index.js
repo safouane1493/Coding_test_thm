@@ -8,6 +8,7 @@ const port = 3002;
 
 const app = express();
 
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -23,6 +24,7 @@ app.use(
 );
 app.use(morganMiddleware);
 app.get('/health', (req, res) => res.send({ message: 'ok' }));
+app.use('/api', require('./routes/api'));
 
 const server = app.listen(port, () => {
   console.log(`THM App running on port ${port}.`);

@@ -3,30 +3,41 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.2.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.20.1",
+    "axios": "^0.21.1",
+    "formik": "^2.2.9",
+    "postcss-import": "^14.0.2",
+    "postcss-nesting": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-scripts": "^4.0.1"
+    "react-redux": "^7.2.4",
+    "react-scripts": "^4.0.1",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "autoprefixer": "^9.8.6",
     "eslint": "^7.11.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^2.5.0"
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "postcss": "^7.0.36",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint --ignore-pattern '**/node_modules/*' --ignore-pattern '**/*.test.js' --fix ./src --ext .js --ext .jsx"
   },
+  "proxy": "http://localhost:3002",
   "eslintConfig": {
     "extends": "react-app"
   },

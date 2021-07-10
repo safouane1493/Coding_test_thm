@@ -1,0 +1,11 @@
+.check-box {
+    @apply w-[1.25rem] h-[1.25rem] border-2 border-[#153376] rounded relative;
+}
+.check-box.active::before {
+    @apply absolute top-0 left-[4px] right-0 bottom-0 w-[8px] h-[13px] border-[#153376];
+    content: '';
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

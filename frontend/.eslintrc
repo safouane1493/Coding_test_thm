@@ -6,7 +6,9 @@
     "max-len": ["warn", 200],
     "no-underscore-dangle": [1],
     "no-console": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "linebreak-style": 0,
+    "no-unneeded-ternary": 0
   },
   "env": {
     "browser": true
