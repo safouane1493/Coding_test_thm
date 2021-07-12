@@ -1,4 +1,4 @@
-import axios from '../../tools/api';
+import * as api from '../../api';
 
 export const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST';
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
@@ -36,7 +36,7 @@ export function getUserInfo({ email, password }) {
     dispatch(userLoginRequest());
 
     try {
-      const resp = await axios.post('/api/auth/login', { email, password });
+      const resp = await api.getUserInfo({ email, password });
       dispatch(userLoginSuccess(resp.data));
       localStorage.setItem('token', resp.data.token);
     } catch (error) {
@@ -51,7 +51,7 @@ export function getUserById(id) {
     dispatch({ type: GET_USER_BY_ID_REQUEST });
 
     try {
-      const resp = await axios.get(`/api/user/${id}`);
+      const resp = await api.getUserById(id);
       dispatch({ type: GET_USER_BY_ID_SUCCESS, payload: resp.data });
     } catch (error) {
       const message = error.response && error.response.data ? error.response.data.message : error.message;
@@ -65,7 +65,7 @@ export function userUpdateProfile(data, id) {
     dispatch({ type: USER_UPDATE_PROFILE_REQUEST });
 
     try {
-      await axios.put(`/api/user/${id}`, data);
+      await api.userUpdateProfile(data, id);
       dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: 1 });
       dispatch(getUserById(id));
     } catch (error) {

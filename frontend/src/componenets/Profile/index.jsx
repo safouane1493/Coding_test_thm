@@ -40,8 +40,8 @@ function Profile({ user }) {
     formData.append('country', values.country);
     formData.append('city', values.city);
     formData.append('phonenumber', values.phonenumber);
-    formData.append('emailalert', values.emailalert ? 1 : 0);
-    formData.append('smsalert', values.smsalert ? 1 : 0);
+    formData.append('emailalert', values.emailalert);
+    formData.append('smsalert', values.smsalert);
     formData.append('profile', values.profile);
 
     dispatch(userUpdateProfile(formData, user.id));
@@ -75,10 +75,7 @@ function Profile({ user }) {
         {updated ? <h2 className="text-green-600">Update Profile Success</h2> : ''}
         {error ? <h2 className="text-red-600">{error}</h2> : '' }
         <Form>
-          <FastField
-            name="profile"
-            component={FileField}
-          />
+          <FastField name="profile" component={FileField} />
           <div className="grid grid-cols-2 gap-8 mb-8">
             <TextField type="text" name="firstname" placeholder="First Name" />
             <TextField type="text" name="lastname" placeholder="Last Name" />
@@ -88,14 +85,6 @@ function Profile({ user }) {
             <TextField type="text" name="phonenumber" placeholder="Phone Number" />
             <FastField name="emailalert" label="Email Alert" component={CheckBoxField} />
             <FastField name="smsalert" label="Sms Alert" component={CheckBoxField} />
-            {/* <div className="flex items-center space-x-4">
-              <Field type="checkbox" name="emailalert" />
-              <span>Email Alert</span>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Field type="checkbox" name="smsalert" />
-              <span>Sms Alert</span>
-            </div> */}
           </div>
           <button type="submit" className="w-full p-2 text-center bg-[#153376] text-white shadow rounded">Save</button>
         </Form>
