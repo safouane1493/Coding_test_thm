@@ -23,6 +23,7 @@ app.use(
 );
 app.use(morganMiddleware);
 app.get('/health', (req, res) => res.send({ message: 'ok' }));
+app.use('/api', require('./api/index'));
 
 const server = app.listen(port, () => {
   console.log(`THM App running on port ${port}.`);
